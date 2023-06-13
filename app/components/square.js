@@ -6,7 +6,7 @@ const Square = () => {
 
   // Function to generate dynamic square
   const dynamicSquareGenerator = () => {
-    if (numberOfSquare > 0) {
+    if (numberOfSquare > 0 && numberOfSquare.toString().length <= 2) {
       let sq = [];
       for (let i = 0; i < numberOfSquare; i++) {
         sq.push(<div style={innerBoxDivStyling}></div>);
@@ -25,8 +25,12 @@ const Square = () => {
     if (numberOfSquare.toString().length > 2) {
       setShowError(true);
     }
-    setShowError(false);
+    if (numberOfSquare.toString().length <= 2) {
+      setShowError(false);
+    }
   }, [numberOfSquare]);
+
+  console.log(numberOfSquare.toString().length > 2);
 
   const squareNumberChangeHandler = (e) => {
     setNumberOfSquare(e.target.value);
@@ -45,6 +49,12 @@ const Square = () => {
           value={numberOfSquare}
           onChange={squareNumberChangeHandler}
         />
+        {showError && (
+          <div style={errorMsg}>
+            Please enter the value having Two Digits as that only can fit your
+            screen
+          </div>
+        )}
       </div>
       {numberOfSquare > 0 && (
         <div style={outerBoxDivStyling}>{dynamicSquareGenerator()}</div>
@@ -56,7 +66,11 @@ const Square = () => {
 export default Square;
 
 // Styling
-const outerBoxDivStyling = { display: "flex", width: "90%", height: "90%" };
+const outerBoxDivStyling = {
+  display: "flex",
+  justifyContent: "center",
+  padding: "1rem"
+};
 
 const colorCodes = {
   1: "#ffff00",
@@ -80,4 +94,11 @@ const innerBoxDivStyling = {
   height: "30px",
   border: "1px solid grey",
   background: randomColorPicker(),
+};
+
+const errorMsg = {
+  background: "#ff4d4d",
+  border: "2px solid #cc0000",
+  color: "#cc0000",
+  padding: "1rem",
 };
