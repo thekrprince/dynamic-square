@@ -5,8 +5,8 @@ const Square = () => {
     const [showError, setShowError] = useState(false);
 
     const innerDivStyling = { 
-        width: "auto", 
-        height: "auto",
+        width: "30px", 
+        height: "30px",
         border: "1px solid grey"
     }
 
@@ -39,7 +39,7 @@ const Square = () => {
     return (
         <section>
             <div>
-                <label htmlFor="number">Enter a number to generate NXN square with random color</label><br />
+                <label htmlFor="number">Enter a number to generate N x N matrix to see some magic</label><br />
                 <input type="number" id="number" value={numberOfSquare} onChange={squareNumberChangeHandler} />
             </div>
             {numberOfSquare > 0 && <div style={{ display: "flex", width: "90%", height: "90%" }}>{dynamicSquareGenerator()}</div>}
