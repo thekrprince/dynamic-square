@@ -22,7 +22,6 @@ const Square: React.FC = () => {
     width: dynamicBoxHW,
     height: dynamicBoxHW,
     border: "1px solid grey",
-    background: randomColorPicker(),
   };
 
   // Function to generate dynamic square
@@ -30,8 +29,10 @@ const Square: React.FC = () => {
     if (numberOfSquare > 0 && numberOfSquare.toString().length <= 2) {
       let sq = [];
       for (let i = 0; i < numberOfSquare; i++) {
-        sq.push(<div style={innerBoxDivStyling}></div>);
+        const randomBg = randomColorPicker();
+        sq.push(<div style={{...innerBoxDivStyling, backgroundColor: randomBg}}></div>);
       }
+      console.log(sq);
       let fullSquare = [];
       for (let i = 0; i < numberOfSquare; i++) {
         fullSquare.push(<div>{sq}</div>);
@@ -93,15 +94,16 @@ const outerBoxDivStyling = {
 };
 
 const colorCodes: {[key: number]: string} = {
-  1: "#ffff00",
-  2: "#ff5050",
-  3: "#00ccff",
-  4: "#00ff99",
-  5: "#e600ac",
-  6: "#ff9900",
-  7: "#404040",
-  8: "#00e6e6",
-  9: "#3399ff",
+  0: "#FCFC81",
+  1: "#08787F",
+  2: "#FDB147",
+  3: "#D8DCD6",
+  4: "#B30049",
+  5: "#BFF128",
+  6: "#04D9FF",
+  7: "#BDF8A3",
+  8: "#F5054F",
+  9: "#6D5ACF",
 };
 
 const errorMsg = {
