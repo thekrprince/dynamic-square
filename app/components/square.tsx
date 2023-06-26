@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
 
-const Square = () => {
-  const [numberOfSquare, setNumberOfSquare] = useState(0);
-  const [showError, setShowError] = useState(false);
-  const [divHeight, setDivHeight] = useState();
-  // const [divWidth, setDivWidth] = useState();
+const Square: React.FC = () => {
+  const [numberOfSquare, setNumberOfSquare] = useState<number>(0);
+  const [showError, setShowError] = useState<boolean>(false);
+  const [dynamicBoxHW, setDynamicBoxHW] = useState<number>();
 
   useEffect(() => {
-    const elem = document.getElementById("mainDiv");
-    const absoluteVal = Math.floor(elem.clientHeight/numberOfSquare);
-    setDivHeight(elem.clientHeight/numberOfSquare);
-    console.log(elem.clientHeight/numberOfSquare);
-    console.log(absoluteVal);
+    const elem: HTMLElement | null = document.getElementById("mainDiv");
+    const calculateBoxesRequired = elem && elem.clientHeight/numberOfSquare;
+    setDynamicBoxHW(calculateBoxesRequired as number);
   }, [numberOfSquare]);
 
   // Styling for inner divs
@@ -22,8 +19,8 @@ const Square = () => {
   
   const innerBoxDivStyling = {
     boxSizing: "border-box",
-    width: divHeight,
-    height: divHeight,
+    width: dynamicBoxHW,
+    height: dynamicBoxHW,
     border: "1px solid grey",
     background: randomColorPicker(),
   };
@@ -69,7 +66,7 @@ const Square = () => {
           id="number"
           value={numberOfSquare}
           onChange={squareNumberChangeHandler}
-          style={{ marginLeft: "0.5rem", width: "25px" }}
+          style={{ marginLeft: "0.5rem", width: "2rem", textAlign: "center" }}
         />
       </div>
       {showError && (
@@ -95,7 +92,7 @@ const outerBoxDivStyling = {
   height: "31rem",
 };
 
-const colorCodes = {
+const colorCodes: {[key: number]: string} = {
   1: "#ffff00",
   2: "#ff5050",
   3: "#00ccff",
