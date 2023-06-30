@@ -71,8 +71,7 @@ const Square: React.FC = () => {
       </div>
       {showError && (
         <div style={errorMsg}>
-          Please enter the value having Two Digits as that only can fit your
-          screen
+          Please enter the 2 value digits
         </div>
       )}
       <div style={outerBoxDivStyling} id="mainDiv">{dynamicSquareGenerator()}</div>
@@ -93,10 +92,10 @@ const outerBoxDivStyling = {
 };
 
 const colorCodes: {[key: number]: string} = {
-  0: "#FCFC81",
+  0: "#3F012C",
   1: "#08787F",
   2: "#FDB147",
-  3: "#D8DCD6",
+  3: "#475F94",
   4: "#B30049",
   5: "#BFF128",
   6: "#04D9FF",
@@ -109,5 +108,6 @@ const errorMsg = {
   background: "#ff4d4d",
   border: "1px solid #cc0000",
   color: "#cc0000",
-  padding: "1rem",
+  fontSize: "10px",
+  padding: "0.3rem",
 };
