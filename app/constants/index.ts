@@ -12,4 +12,4 @@ export const colorCodes: {[key: number]: string} = {
   };
 
   export const INPUT_LABEL = "Enter a number to generate N x N matrix to see some magic:";
-  export const ERROR_MSG = "Please enter the 2 digits only";
+  export const ERROR_MSG = "❗Please enter the 2 digits only";

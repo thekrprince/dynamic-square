@@ -8,7 +8,7 @@ const Square: React.FC = () => {
 
   useEffect(() => {
     const elem: HTMLElement | null = document.getElementById("mainDiv");
-    const calculateBoxesRequired = elem && elem.clientHeight/numberOfSquare;
+    const calculateBoxesRequired = elem && elem.clientHeight / numberOfSquare;
     setDynamicBoxHW(calculateBoxesRequired as number);
   }, [numberOfSquare]);
 
@@ -17,7 +17,7 @@ const Square: React.FC = () => {
     const colorSelected = Math.floor(Math.random() * 10);
     return colorCodes[colorSelected];
   };
-  
+
   const innerBoxDivStyling = {
     boxSizing: "border-box",
     width: dynamicBoxHW,
@@ -31,7 +31,11 @@ const Square: React.FC = () => {
       let sq = [];
       for (let i = 0; i < numberOfSquare; i++) {
         const randomBg = randomColorPicker();
-        sq.push(<div style={{...innerBoxDivStyling, backgroundColor: randomBg}}></div>);
+        sq.push(
+          <div
+            style={{ ...innerBoxDivStyling, backgroundColor: randomBg }}
+          ></div>
+        );
       }
       let fullSquare = [];
       for (let i = 0; i < numberOfSquare; i++) {
@@ -56,26 +60,26 @@ const Square: React.FC = () => {
   };
 
   return (
-    <section style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <label htmlFor="number">
-          {INPUT_LABEL}
-        </label>
+    <section
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <div
+        style={inputFormStyle}
+      >
+        <label htmlFor="number">{INPUT_LABEL}</label>
         <br />
         <input
           type="number"
           id="number"
           value={numberOfSquare}
           onChange={squareNumberChangeHandler}
-          style={{ marginLeft: "0.5rem", width: "2rem", textAlign: "center" }}
+          style={inputBoxStyling}
         />
       </div>
-      {showError && (
-        <div style={errorMsg}>
-          {ERROR_MSG}
-        </div>
-      )}
-      <div style={outerBoxDivStyling} id="mainDiv">{dynamicSquareGenerator()}</div>
+      {showError && <div style={errorMsg}>{ERROR_MSG}</div>}
+      <div style={outerBoxDivStyling} id="mainDiv">
+        {dynamicSquareGenerator()}
+      </div>
     </section>
   );
 };
@@ -98,5 +102,28 @@ const errorMsg = {
   color: "rgb(244, 199, 199)",
   fontSize: "10px",
   padding: "0.3rem",
-  marginBottom: "0.3rem"
+  marginBottom: "0.3rem",
 };
+
+// Input Box Styling
+const inputFormStyle = {
+  backgroundColor: "rgb(7, 19, 24)",
+  color: "rgb(184, 231, 251)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginBottom: "0.2rem",
+  padding: "0.5rem",
+  borderRadius: "0.5rem",
+}
+
+const inputBoxStyling = {
+  marginLeft: "0.5rem",
+  width: "2rem",
+  textAlign: "center",
+  height: "1rem",
+  background: "none",
+  border: "1px solid #66B2FF",
+  borderRadius: "0.5rem",
+  color: "#fff"
+}
