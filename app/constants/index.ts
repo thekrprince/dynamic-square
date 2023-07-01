@@ -11,5 +11,5 @@ export const colorCodes: {[key: number]: string} = {
     9: "#6D5ACF",
   };
 
-  export const INPUT_LABEL = "Enter a number to generate N x N matrix to see some magic:";
+  export const INPUT_LABEL = "Enter a number to see some NxN magic:";
   export const ERROR_MSG = "❗Please enter the 2 digits only";
