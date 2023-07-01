@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ERROR_MSG, INPUT_LABEL, colorCodes } from "~/constants";
 
 const Square: React.FC = () => {
   const [numberOfSquare, setNumberOfSquare] = useState<number>(0);
@@ -58,7 +59,7 @@ const Square: React.FC = () => {
     <section style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <label htmlFor="number">
-          Enter a number to generate N x N matrix to see some magic:
+          {INPUT_LABEL}
         </label>
         <br />
         <input
@@ -71,7 +72,7 @@ const Square: React.FC = () => {
       </div>
       {showError && (
         <div style={errorMsg}>
-          Please enter the 2 value digits
+          {ERROR_MSG}
         </div>
       )}
       <div style={outerBoxDivStyling} id="mainDiv">{dynamicSquareGenerator()}</div>
@@ -91,23 +92,10 @@ const outerBoxDivStyling = {
   height: "31rem",
 };
 
-const colorCodes: {[key: number]: string} = {
-  0: "#3F012C",
-  1: "#08787F",
-  2: "#FDB147",
-  3: "#475F94",
-  4: "#B30049",
-  5: "#BFF128",
-  6: "#04D9FF",
-  7: "#BDF8A3",
-  8: "#F5054F",
-  9: "#6D5ACF",
-};
-
 const errorMsg = {
-  background: "#ff4d4d",
-  border: "1px solid #cc0000",
-  color: "#cc0000",
+  background: "rgb(22, 11, 11)",
+  borderRadius: "4px",
+  color: "rgb(244, 199, 199)",
   fontSize: "10px",
   padding: "0.3rem",
 };
