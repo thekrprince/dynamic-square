@@ -1,9 +1,9 @@
-import type { V2_MetaFunction } from "@remix-run/node";
+// import type { V2_MetaFunction } from "@remix-run/node";
 import Square from "../components/square";
 
-export const meta: V2_MetaFunction = () => {
-  return [{ title: "Magic Square" }];
-};
+// export const meta: V2_MetaFunction = () => {
+//   return [{ title: "Dynamic Square" }];
+// };
 
 export default function Index() {
   return (
