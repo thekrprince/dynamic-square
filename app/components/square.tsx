@@ -54,7 +54,7 @@ const Square: React.FC = () => {
     }
   }, [numberOfSquare]);
 
-  const squareNumberChangeHandler = (e) => {
+  const squareNumberChangeHandler = (e: any): void => {
     setNumberOfSquare(e.target.value);
   };
 
