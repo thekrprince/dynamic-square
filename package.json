@@ -1,11 +1,15 @@
 {
+  "homepage": "https://github.com/thekrprince/dynamic-square",
+  "name": "dynamic-square",
   "private": true,
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^1.16.0",
@@ -22,6 +26,7 @@
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
     "eslint": "^8.38.0",
+    "gh-pages": "^5.0.0",
     "typescript": "^5.0.4"
   },
   "engines": {
