@@ -7,7 +7,7 @@ export const meta: V2_MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "Ubuntu, sans-serif", lineHeight: "1.4", textAlign: "center" }}>
+    <div style={{ textAlign: "center", lineHeight: "1.4" }}>
       <h3>Dynamic Square</h3>
       <Square />
     </div>

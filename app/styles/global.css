@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    padding: 1rem;
+    min-height: 95vh;
+    background-color: black;
+    color: #fff;
+}
+
+h3 {
+    margin: 0.3rem;
+    font-family: 'Montserrat', sans-serif;
+}
