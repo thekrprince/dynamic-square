@@ -43,10 +43,10 @@ const Square: React.FC = () => {
 
   // Side effects to show and hide Error alert
   useEffect(() => {
-    if (numberOfSquare.toString().length > 2) {
+    if (numberOfSquare > 99) {
       setShowError(true);
     }
-    if (numberOfSquare.toString().length <= 2) {
+    if (numberOfSquare <= 99) {
       setShowError(false);
     }
   }, [numberOfSquare]);
@@ -87,7 +87,7 @@ const outerBoxDivStyling = {
   display: "flex",
   justifyContent: "center",
   margin: "0.2rem",
-  border: "1px solid black",
+  border: "1px solid white",
   width: "31rem",
   height: "31rem",
 };
@@ -98,4 +98,5 @@ const errorMsg = {
   color: "rgb(244, 199, 199)",
   fontSize: "10px",
   padding: "0.3rem",
+  marginBottom: "0.3rem"
 };
