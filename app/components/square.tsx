@@ -4,7 +4,7 @@ import { ERROR_MSG, INPUT_LABEL, colorCodes } from "~/constants";
 const Square: React.FC = () => {
   const [numberOfSquare, setNumberOfSquare] = useState<number>(0);
   const [showError, setShowError] = useState<boolean>(false);
-  const [dynamicBoxHW, setDynamicBoxHW] = useState<number>();
+  const [dynamicBoxHW, setDynamicBoxHW] = useState<number>(0);
 
   useEffect(() => {
     const elem: HTMLElement | null = document.getElementById("mainDiv");
@@ -18,13 +18,6 @@ const Square: React.FC = () => {
     return colorCodes[colorSelected];
   };
 
-  const innerBoxDivStyling = {
-    boxSizing: "border-box",
-    width: dynamicBoxHW,
-    height: dynamicBoxHW,
-    border: "0.2px solid white",
-  };
-
   // Function to generate dynamic square
   const dynamicSquareGenerator = () => {
     if (numberOfSquare > 0 && numberOfSquare.toString().length <= 2) {
@@ -33,7 +26,13 @@ const Square: React.FC = () => {
         const randomBg = randomColorPicker();
         sq.push(
           <div
-            style={{ ...innerBoxDivStyling, backgroundColor: randomBg }}
+            style={{
+              boxSizing: "border-box",
+              width: dynamicBoxHW,
+              height: dynamicBoxHW,
+              border: "0.2px solid white",
+              backgroundColor: randomBg,
+            }}
           ></div>
         );
       }
@@ -63,9 +62,7 @@ const Square: React.FC = () => {
     <section
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <div
-        style={inputFormStyle}
-      >
+      <div style={inputFormStyle}>
         <label htmlFor="number">{INPUT_LABEL}</label>
         <br />
         <input
@@ -73,7 +70,16 @@ const Square: React.FC = () => {
           id="number"
           value={numberOfSquare}
           onChange={squareNumberChangeHandler}
-          style={inputBoxStyling}
+          style={{
+            marginLeft: "0.5rem",
+            width: "2rem",
+            textAlign: "center",
+            height: "1rem",
+            background: "none",
+            border: "1px solid #66B2FF",
+            borderRadius: "0.5rem",
+            color: "#fff",
+          }}
         />
       </div>
       {showError && <div style={errorMsg}>{ERROR_MSG}</div>}
@@ -115,15 +121,4 @@ const inputFormStyle = {
   marginBottom: "0.2rem",
   padding: "0.5rem",
   borderRadius: "0.5rem",
-}
-
-const inputBoxStyling = {
-  marginLeft: "0.5rem",
-  width: "2rem",
-  textAlign: "center",
-  height: "1rem",
-  background: "none",
-  border: "1px solid #66B2FF",
-  borderRadius: "0.5rem",
-  color: "#fff"
-}
+};
