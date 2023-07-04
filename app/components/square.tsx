@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ERROR_MSG, INPUT_LABEL, colorCodes } from "~/constants";
+import styles from "./square.css";
 
 const Square: React.FC = () => {
   const [numberOfSquare, setNumberOfSquare] = useState<number>(0);
@@ -62,7 +63,7 @@ const Square: React.FC = () => {
     <section
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <div style={inputFormStyle}>
+      <div className="inputFormStyle">
         <label htmlFor="number">{INPUT_LABEL}</label>
         <br />
         <input
@@ -82,8 +83,8 @@ const Square: React.FC = () => {
           }}
         />
       </div>
-      {showError && <div style={errorMsg}>{ERROR_MSG}</div>}
-      <div style={outerBoxDivStyling} id="mainDiv">
+      {showError && <div className="errorMsg">{ERROR_MSG}</div>}
+      <div className="outerBoxDivStyling" id="mainDiv">
         {dynamicSquareGenerator()}
       </div>
     </section>
@@ -92,33 +93,6 @@ const Square: React.FC = () => {
 
 export default Square;
 
-// Styling
-const outerBoxDivStyling = {
-  display: "flex",
-  justifyContent: "center",
-  margin: "0.2rem",
-  border: "1px solid white",
-  width: "31rem",
-  height: "31rem",
-};
-
-const errorMsg = {
-  background: "rgb(22, 11, 11)",
-  borderRadius: "4px",
-  color: "rgb(244, 199, 199)",
-  fontSize: "10px",
-  padding: "0.3rem",
-  marginBottom: "0.3rem",
-};
-
-// Input Box Styling
-const inputFormStyle = {
-  backgroundColor: "rgb(7, 19, 24)",
-  color: "rgb(184, 231, 251)",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  marginBottom: "0.2rem",
-  padding: "0.5rem",
-  borderRadius: "0.5rem",
-};
+export function links() {
+  return [{ rel: "stylesheet", href: styles }];
+}

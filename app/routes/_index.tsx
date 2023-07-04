@@ -1,5 +1,5 @@
 import type { V2_MetaFunction } from "@remix-run/node";
-import Square from "~/components/square";
+import Square, { links as squareLinks } from "~/components/square";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -15,4 +15,8 @@ export default function Index() {
       <Square />
     </div>
   );
+}
+
+export function links() {
+  return [...squareLinks()]
 }
