@@ -7,6 +7,7 @@ const Square: React.FC = () => {
   const [showError, setShowError] = useState<boolean>(false);
   const [dynamicBoxHW, setDynamicBoxHW] = useState<number>(0);
 
+  // Calculating the size of box and using same foe height and  width
   useEffect(() => {
     const elem: HTMLElement | null = document.getElementById("mainDiv");
     const calculateBoxesRequired = elem && elem.clientHeight / numberOfSquare;
@@ -22,24 +23,24 @@ const Square: React.FC = () => {
   // Function to generate dynamic square
   const dynamicSquareGenerator = () => {
     if (numberOfSquare > 0 && numberOfSquare.toString().length <= 2) {
-      let sq = [];
-      for (let i = 0; i < numberOfSquare; i++) {
-        const randomBg = randomColorPicker();
-        sq.push(
-          <div
-            style={{
-              boxSizing: "border-box",
-              width: dynamicBoxHW,
-              height: dynamicBoxHW,
-              border: "0.2px solid white",
-              backgroundColor: randomBg,
-            }}
-          ></div>
-        );
-      }
       let fullSquare = [];
       for (let i = 0; i < numberOfSquare; i++) {
-        fullSquare.push(<div>{sq}</div>);
+        let sq = [];
+        for (let i = 0; i < numberOfSquare; i++) {
+          const randomBg = randomColorPicker();
+          sq.push(
+            <div
+              style={{
+                boxSizing: "border-box",
+                width: dynamicBoxHW,
+                height: dynamicBoxHW,
+                border: "0.2px solid white",
+                backgroundColor: randomBg,
+              }}
+            ></div>
+          );
+        }
+        fullSquare.push(<div className="square">{sq}</div>);
       }
       return fullSquare;
     }
