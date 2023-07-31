@@ -4,10 +4,11 @@
 
 
 ## Tech Stack
-Frontend - ReactJS
-Styling - CSS
-Framework - Remix
-Deployment - Netlify
+
+- Frontend - ReactJS
+- Styling - CSS
+- Framework - Remix
+- Deployment - Netlify
 
 
 ## To run this project locally, just clone this repo and run the below command
